@@ -4,12 +4,12 @@ provider "azurerm"{
 
 resource "azurerm_resource_group" "rg" {
 
-    name = "rg-giftjoy-dev"
-    location = "East US 2"
+    name = "rg-${var.project}-${var.environment}"
+    location = var.location
 
     tags = {
-        environment = "dev"
-        project = "giftjoy"
+        environment = var.environment
+        project = var.project
         creatred_by = "Terraform"
     }
 
